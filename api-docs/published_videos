@@ -1,0 +1,146 @@
+{
+    "apiVersion": "0.2", 
+    "apis": [
+        {
+            "description": "Operations about Videos", 
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 400, 
+                            "reason": "Video with given id doesn't exist"
+                        } 
+                      
+                    ], 
+                    "httpMethod": "POST", 
+                    "nickname": "obtain", 
+                    "notes": "Creating Videos", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "Video's Id to create", 
+                            "name": "video_id", 
+                            "paramType": "path", 
+                            "required": true
+                        },{
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "Video's Id to create", 
+                            "name": "file_basename", 
+                            "paramType": "query", 
+                            "required": true
+                        },{
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "Video's Id to create", 
+                            "name": "file_format", 
+                            "paramType": "query", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "Video", 
+                    "summary": "Create Video"
+                }
+            ], 
+            "path": "/api/publishedvideos/"
+        }
+    ], 
+    "basePath": "http://192.168.1.133:3000/", 
+    "models": {
+        "Video": {
+            "id": "Video", 
+            "properties": {
+                "accepted_by_mod": {
+                    "type": "tinyint"
+                }, 
+                "channel": {
+                    "type": "varchar"
+                }, 
+                "comments_count": {
+                    "type": "int"
+                }, 
+                "created_at": {
+                    "type": "datetime"
+                }, 
+                "description": {
+                    "type": "text"
+                }, 
+                "first_played_at": {
+                    "type": "int"
+                }, 
+                "guid": {
+                    "type": "varchar"
+                }, 
+                "id": {
+                    "type": "int"
+                }, 
+                "last_error": {
+                    "type": "varchar"
+                }, 
+                "last_queued_at": {
+                    "type": "datetime"
+                }, 
+                "lenght": {
+                    "type": "double"
+                }, 
+                "origin_opinion_id": {
+                    "type": "int"
+                }, 
+                "points": {
+                    "type": "int"
+                }, 
+                "published_at": {
+                    "type": "datetime"
+                }, 
+                "replies_count": {
+                    "type": "int"
+                }, 
+                "reply_to_opinion_id": {
+                    "type": "int"
+                }, 
+                "s3_key": {
+                    "type": "varchar"
+                }, 
+                "state": {
+                    "type": "varchar"
+                }, 
+                "tags": {
+                    "type": "varchar"
+                }, 
+                "thumbnail_content_type": {
+                    "type": "varchar"
+                }, 
+                "thumbnail_file_name": {
+                    "type": "varchar"
+                }, 
+                "thumbnail_file_size": {
+                    "type": "int"
+                }, 
+                "ticckles_count": {
+                    "type": "int"
+                }, 
+                "title": {
+                    "type": "varchar"
+                }, 
+                "topic_id": {
+                    "type": "int"
+                }, 
+                "updated_at": {
+                    "type": "datetime"
+                }, 
+                "user_id": {
+                    "type": "int"
+                }, 
+                "uuid": {
+                    "type": "varchar"
+                }, 
+                "views_count": {
+                    "type": "int"
+                }
+            }
+        }
+    }, 
+    "resourcePath": "/store", 
+    "swaggerVersion": "1.1"
+}

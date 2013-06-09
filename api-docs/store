@@ -1,0 +1,72 @@
+{
+    "apiVersion": "0.2", 
+    "apis": [
+        {
+            "description": "Operations about store", 
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 400, 
+                            "reason": "Invalid ID supplied"
+                        }, 
+                        {
+                            "code": 404, 
+                            "reason": "Order not found"
+                        }
+                    ], 
+                    "httpMethod": "GET", 
+                    "nickname": "getOrderById", 
+                    "notes": "For valid response try integer IDs with value <= 5. Anything above 5 or nonintegers will generate API errors", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "ID of pet that needs to be fetched", 
+                            "name": "orderId", 
+                            "paramType": "path", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "Order", 
+                    "summary": "Find purchase order by ID"
+                }
+            ], 
+            "path": "/topics"
+        }
+    ], 
+    "basePath": "http://192.168.1.138:3000/", 
+    "models": {
+        "Order": {
+            "id": "Order", 
+            "properties": {
+                "id": {
+                    "type": "long"
+                }, 
+                "petId": {
+                    "type": "long"
+                }, 
+                "quantity": {
+                    "type": "int"
+                }, 
+                "shipDate": {
+                    "type": "Date"
+                }, 
+                "status": {
+                    "allowableValues": {
+                        "valueType": "LIST", 
+                        "values": [
+                            "placed", 
+                            " approved", 
+                            " delivered"
+                        ]
+                    }, 
+                    "description": "Order Status", 
+                    "type": "string"
+                }
+            }
+        }
+    }, 
+    "resourcePath": "/store", 
+    "swaggerVersion": "1.1"
+}

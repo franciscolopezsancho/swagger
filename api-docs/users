@@ -1,0 +1,230 @@
+{
+    "apiVersion": "0.2",
+    "apis": [
+        {
+            "description": "Operations about Topics",
+            "operations": [
+                {
+                    "errorResponses": "",
+                    "httpMethod": "GET",
+                    "nickname": "obtain",
+                    "notes": "",
+                    "parameters": "",
+                    "responseClass": "Topic",
+                    "summary": "Retrieves all users order desc by points"
+                }
+            ],
+            "path": "/users.{format}"
+        },
+        {
+            "description": "Operations about Topics",
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 500,
+                            "reason": "...html with error trace"
+                        }
+                    ],
+                    "httpMethod": "GET",
+                    "nickname": "obtain",
+                    "notes": "gives an unhandled error",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "dataType": "string",
+                            "description": "User's topics",
+                            "name": "id",
+                            "paramType": "path",
+                            "required": true
+                        }
+                    ],
+                    "responseClass": "Users",
+                    "summary": "Find All topics from user and category"
+                }
+            ],
+            "path": "/users/{id}"
+        },
+        {
+            "description": "Operations about Topics",
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": "500",
+                            "reason": " RuntimeError in UsersController#update"
+                        }
+                    ],
+                    "httpMethod": "PUT",
+                    "nickname": "obtain",
+                    "notes": "Needs autentication",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "dataType": "string",
+                            "description": "User's id to find",
+                            "name": "id",
+                            "paramType": "path",
+                            "required": true
+                        },
+                        {
+                            "allowMultiple": false,
+                            "dataType": "string",
+                            "description": "User's atribute to update ??@user.update_attributes params[:user]",
+                            "name": "user",
+                            "paramType": "query",
+                            "required": true
+                        },
+                        {
+                            "allowMultiple": false,
+                            "dataType": "string",
+                            "description": "provisional auth",
+                            "name": "auth_token",
+                            "paramType": "query",
+                            "required": true
+                        }
+                    ],
+                    "responseClass": "app/controllers/users_controller.rb:27:in `update'",
+                    "summary": "Find All topics from user and category"
+                }
+            ],
+            "path": "/users/{id}"
+        }
+    ],
+    "basePath": "http://192.168.1.131:3000/",
+    "models": {
+        "Topics": {
+            "id": "Topics",
+            "properties": {
+                "id": {
+                    "type": "int"
+                },
+                "email": {
+                    "type": "varchar"
+                },
+                "encrypted_password": {
+                    "type": "varchar"
+                },
+                "reset_password_token": {
+                    "type": "varchar"
+                },
+                "reset_password_sent_at": {
+                    "type": "varchar"
+                },
+                "remember_created_at": {
+                    "type": "datetime"
+                },
+                "sign_in_count": {
+                    "type": "int"
+                },
+                "current_sign_in_at": {
+                    "type": "datetime"
+                },
+                "last_sign_in_at": {
+                    "type": "datetime"
+                },
+                "current_sign_in_ip": {
+                    "type": "varchar"
+                },
+                "last_sign_in_ip": {
+                    "type": "varchar"
+                },
+                "created_at": {
+                    "type": "datetime"
+                },
+                "updated_at": {
+                    "type": "datetime"
+                },
+                "username": {
+                    "type": "varchar"
+                },
+                "confirmation_token": {
+                    "type": "varchar"
+                },
+                "confirmed_at": {
+                    "type": "datetime"
+                },
+                "confirmation_sent_at": {
+                    "type": "datetime"
+                },
+                "country": {
+                    "type": "varchar"
+                },
+                "bio": {
+                    "type": "text"
+                },
+                "website": {
+                    "type": "varchar"
+                },
+                "avatar_file_name": {
+                    "type": "varchar"
+                },
+                "avatar_content_type": {
+                    "type": "varchar"
+                },
+                "avatar_file_size": {
+                    "type": "int"
+                },
+                "first_name": {
+                    "type": "varchar"
+                },
+                "last_name": {
+                    "type": "varchar"
+                },
+                "facebook_username": {
+                    "type": "varchar"
+                },
+                "twitter_username": {
+                    "type": "varchar"
+                },
+                "youtube_username": {
+                    "type": "varchar"
+                },
+                "points": {
+                    "type": "int"
+                },
+                "ticckles_count": {
+                    "type": "int"
+                },
+                "topic_suggestions_count": {
+                    "type": "int"
+                },
+                "topics_count": {
+                    "type": "int"
+                },
+                "opinions_count": {
+                    "type": "int"
+                },
+                "location": {
+                    "type": "varchar"
+                },
+                "replies_count": {
+                    "type": "int"
+                },
+                "comments_count": {
+                    "type": "int"
+                },
+                "social_mode": {
+                    "type": "tinyint"
+                },
+                "type": {
+                    "type": "varchar"
+                },
+                "approval_notification_sent": {
+                    "type": "tinyint"
+                },
+                "originated_from": {
+                    "type": "varchar"
+                },
+                "additional_invitations_count": {
+                    "type": "int"
+                },
+                "configuration_id": {
+                    "type": "int"
+                }
+            }
+        }
+    },
+    "resourcePath": "/topics",
+    "swaggerVersion": "1.1"
+}

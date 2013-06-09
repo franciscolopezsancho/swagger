@@ -1,0 +1,72 @@
+{
+    "apiVersion": "0.2", 
+    "apis": [
+        {
+            "description": "Operations about store", 
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 400, 
+                            "reason": "Invalid User ID supplied"
+                        }, 
+                        {
+                            "code": 404, 
+                            "reason": "Unable to create "
+                        }
+                    ], 
+                    "httpMethod": "GET", 
+                    "nickname": "new", 
+                    "notes": "Creating new access to some user", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "ID of pet that needs to be fetched", 
+                            "name": "orderId", 
+                            "paramType": "path", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "", 
+                    "summary": "Find purchase order by ID"
+                }
+            ], 
+            "path": "/new"
+        }
+    ], 
+    "basePath": "http://192.168.1.137:3000/", 
+    "models": {
+        "Order": {
+            "id": "Order", 
+            "properties": {
+                "id": {
+                    "type": "long"
+                }, 
+                "petId": {
+                    "type": "long"
+                }, 
+                "quantity": {
+                    "type": "int"
+                }, 
+                "shipDate": {
+                    "type": "Date"
+                }, 
+                "status": {
+                    "allowableValues": {
+                        "valueType": "LIST", 
+                        "values": [
+                            "placed", 
+                            " approved", 
+                            " delivered"
+                        ]
+                    }, 
+                    "description": "Order Status", 
+                    "type": "string"
+                }
+            }
+        }
+    }, 
+    "resourcePath": "/store", 
+    "swaggerVersion": "1.1"
+}

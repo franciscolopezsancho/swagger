@@ -1,0 +1,177 @@
+{
+    "apiVersion": "0.2", 
+    "apis": [
+        {
+            "description": "Operations about Opinions", 
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 400, 
+                            "reason": "Invalid User ID supplied"
+                        }, 
+                        {
+                            "code": 404, 
+                            "reason": "Unable to create "
+                        }
+                    ], 
+                    "httpMethod": "GET", 
+                    "nickname": "obtain", 
+                    "notes": "Filter played opinions(that is videos), , code 200 when no response", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "int", 
+                            "description": "video of user id", 
+                            "name": "user_id", 
+                            "paramType": "query", 
+                            "required": true
+                        }, 
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "int", 
+                            "description": "video of topic id", 
+                            "name": "topic", 
+                            "paramType": "query", 
+                            "required": false
+                        }, 
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "int", 
+                            "description": "topic of category id", 
+                            "name": "category_id", 
+                            "paramType": "query", 
+                            "required": false
+                        }, 
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "int", 
+                            "description": "video with a reply id", 
+                            "name": "only_replies", 
+                            "paramType": "query", 
+                            "required": false
+                        }
+                    ], 
+                    "responseClass": "Videos", 
+                    "summary": "Find purchase order by ID"
+                }, 
+                {
+                    "errorResponses": [], 
+                    "httpMethod": "DELETE", 
+                    "nickname": "delete", 
+                    "notes": "Delete an opinion video", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "Video to be deleted", 
+                            "name": "id", 
+                            "paramType": "path", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "Videos", 
+                    "summary": "Delete a video by ID"
+                }
+            ], 
+            "path": "/api/opinion"
+        }
+    ], 
+    "basePath": "http://192.168.1.140:3000/", 
+    "models": {
+        "Video": {
+            "id": "Video", 
+            "properties": {
+                "accepted_by_mod": {
+                    "type": "tinyint"
+                }, 
+                "channel": {
+                    "type": "varchar"
+                }, 
+                "comments_count": {
+                    "type": "int"
+                }, 
+                "created_at": {
+                    "type": "datetime"
+                }, 
+                "description": {
+                    "type": "text"
+                }, 
+                "first_played_at": {
+                    "type": "int"
+                }, 
+                "guid": {
+                    "type": "varchar"
+                }, 
+                "id": {
+                    "type": "int"
+                }, 
+                "last_error": {
+                    "type": "varchar"
+                }, 
+                "last_queued_at": {
+                    "type": "datetime"
+                }, 
+                "lenght": {
+                    "type": "double"
+                }, 
+                "origin_opinion_id": {
+                    "type": "int"
+                }, 
+                "points": {
+                    "type": "int"
+                }, 
+                "published_at": {
+                    "type": "datetime"
+                }, 
+                "replies_count": {
+                    "type": "int"
+                }, 
+                "reply_to_opinion_id": {
+                    "type": "int"
+                }, 
+                "s3_key": {
+                    "type": "varchar"
+                }, 
+                "state": {
+                    "type": "varchar"
+                }, 
+                "tags": {
+                    "type": "varchar"
+                }, 
+                "thumbnail_content_type": {
+                    "type": "varchar"
+                }, 
+                "thumbnail_file_name": {
+                    "type": "varchar"
+                }, 
+                "thumbnail_file_size": {
+                    "type": "int"
+                }, 
+                "ticckles_count": {
+                    "type": "int"
+                }, 
+                "title": {
+                    "type": "varchar"
+                }, 
+                "topic_id": {
+                    "type": "int"
+                }, 
+                "updated_at": {
+                    "type": "datetime"
+                }, 
+                "user_id": {
+                    "type": "int"
+                }, 
+                "uuid": {
+                    "type": "varchar"
+                }, 
+                "views_count": {
+                    "type": "int"
+                }
+            }
+        }
+    }, 
+    "resourcePath": "/store", 
+    "swaggerVersion": "1.1"
+}

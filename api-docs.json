@@ -1,0 +1,59 @@
+{
+  "apiVersion":"0.2",
+  "swaggerVersion":"1.1",
+  "basePath":"http://localhost:8080/swagger",
+  "apis":[
+    {
+      "path":"/api-docs/notifications",
+      "description":"Operations about notifications"
+    },
+    {
+      "path":"/api-docs/opinions",
+      "description":"Operations about Opinions"
+    },
+    {
+      "path":"/api-docs/replies",
+      "description":"Operations about Replies"
+    },
+    {
+      "path":"/api-docs/topics",
+      "description":"Operations about Replies"
+    },
+    {
+      "path":"/api-docs/tokens",
+      "description":"Operations about user"
+    },
+    {
+      "path":"/api-docs/published_videos",
+      "description":"Operations about videos"
+    },
+    {
+      "path":"/api-docs/share_configs",
+      "description":"Operations about videos"
+    },
+    {
+      "path":"/api-docs/ticckles",
+      "description":"Operations attaching videos with users"
+    },
+    {
+      "path":"/api-docs/topic_content",
+      "description":"Operations attaching videos with users"
+    },
+    {
+      "path":"/api-docs/user_topics",
+      "description":"Operations attaching videos with users"
+    },
+    {
+      "path":"/api-docs/users",
+      "description":"Operations attaching videos with users"
+    },
+    {
+      "path":"/api-docs/videos",
+      "description":"Operations attaching videos with users"
+    },
+    {
+      "path":"/api-docs/videosNoApi",
+      "description":"Operations attaching videos with users"
+    }
+  ]
+}

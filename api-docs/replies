@@ -1,0 +1,148 @@
+{
+    "apiVersion": "0.2", 
+    "apis": [
+        {
+            "description": "Operations about replies to opinions", 
+            "operations": [
+                {
+                    "errorResponses": [
+                       {
+                           "code": 400, 
+                           "reason": "Origin opinion with given id doesn't exist"
+                       }
+                    ], 
+                    "httpMethod": "POST", 
+                    "nickname": "Create a reply to some opinion", 
+                    "notes": "missing relational binding in video's user_id, can insert any user_id number", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "ID of user that needs to filter", 
+                            "name": "origin_opinion_id", 
+                            "paramType": "query", 
+                            "required": true
+                        },
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "ID of topic that needs to filter", 
+                            "name": "user_id", 
+                            "paramType": "query", 
+                            "required": false
+                        },
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "ID of topic that needs to filter", 
+                            "name": "description", 
+                            "paramType": "query", 
+                            "required": false
+                        }
+                    ], 
+                    "responseClass": "Video", 
+                    "summary": "Create reply video with description"
+                }
+            ], 
+            "path": "/api/replies"
+        }
+    ], 
+    "basePath": "http://192.168.1.133:3000/", 
+   "models": {
+       "Video": {
+           "id": "Video", 
+           "properties": {
+               "accepted_by_mod": {
+                   "type": "tinyint"
+               }, 
+               "channel": {
+                   "type": "varchar"
+               }, 
+               "comments_count": {
+                   "type": "int"
+               }, 
+               "created_at": {
+                   "type": "datetime"
+               }, 
+               "description": {
+                   "type": "text"
+               }, 
+               "first_played_at": {
+                   "type": "int"
+               }, 
+               "guid": {
+                   "type": "varchar"
+               }, 
+               "id": {
+                   "type": "int"
+               }, 
+               "last_error": {
+                   "type": "varchar"
+               }, 
+               "last_queued_at": {
+                   "type": "datetime"
+               }, 
+               "lenght": {
+                   "type": "double"
+               }, 
+               "origin_opinion_id": {
+                   "type": "int"
+               }, 
+               "points": {
+                   "type": "int"
+               }, 
+               "published_at": {
+                   "type": "datetime"
+               }, 
+               "replies_count": {
+                   "type": "int"
+               }, 
+               "reply_to_opinion_id": {
+                   "type": "int"
+               }, 
+               "s3_key": {
+                   "type": "varchar"
+               }, 
+               "state": {
+                   "type": "varchar"
+               }, 
+               "tags": {
+                   "type": "varchar"
+               }, 
+               "thumbnail_content_type": {
+                   "type": "varchar"
+               }, 
+               "thumbnail_file_name": {
+                   "type": "varchar"
+               }, 
+               "thumbnail_file_size": {
+                   "type": "int"
+               }, 
+               "ticckles_count": {
+                   "type": "int"
+               }, 
+               "title": {
+                   "type": "varchar"
+               }, 
+               "topic_id": {
+                   "type": "int"
+               }, 
+               "updated_at": {
+                   "type": "datetime"
+               }, 
+               "user_id": {
+                   "type": "int"
+               }, 
+               "uuid": {
+                   "type": "varchar"
+               }, 
+               "views_count": {
+                   "type": "int"
+               }
+           }
+       }
+   }, 
+   "resourcePath": "", 
+   "swaggerVersion": "1.1"
+   
+}

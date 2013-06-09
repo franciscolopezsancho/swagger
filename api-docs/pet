@@ -1,0 +1,227 @@
+{
+    "apiVersion": "0.2", 
+    "apis": [
+        {
+            "description": "Operations about pets", 
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 400, 
+                            "reason": "Invalid ID supplied"
+                        }, 
+                        {
+                            "code": 404, 
+                            "reason": "Pet not found"
+                        }
+                    ], 
+                    "httpMethod": "GET", 
+                    "nickname": "getPetById", 
+                    "notes": "Returns a pet based on ID", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "ID of pet that needs to be fetched", 
+                            "name": "petId", 
+                            "paramType": "path", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "Pet", 
+                    "summary": "Find pet by ID"
+                }
+            ], 
+            "path": "/pet.{format}/{petId}"
+        }, 
+        {
+            "description": "Operations about pets", 
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 405, 
+                            "reason": "Invalid input"
+                        }
+                    ], 
+                    "httpMethod": "POST", 
+                    "nickname": "addPet", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "Pet", 
+                            "description": "Pet object that needs to be added to the store", 
+                            "paramType": "body", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "void", 
+                    "summary": "Add a new pet to the store"
+                }, 
+                {
+                    "errorResponses": [
+                        {
+                            "code": 400, 
+                            "reason": "Invalid ID supplied"
+                        }, 
+                        {
+                            "code": 404, 
+                            "reason": "Pet not found"
+                        }, 
+                        {
+                            "code": 405, 
+                            "reason": "Validation exception"
+                        }
+                    ], 
+                    "httpMethod": "PUT", 
+                    "nickname": "updatePet", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "Pet", 
+                            "description": "Pet object that needs to be updated in the store", 
+                            "paramType": "body", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "void", 
+                    "summary": "Update an existing pet"
+                }
+            ], 
+            "path": "/pet.{format}"
+        }, 
+        {
+            "description": "Operations about pets", 
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 400, 
+                            "reason": "Invalid status value"
+                        }
+                    ], 
+                    "httpMethod": "GET", 
+                    "nickname": "findPetsByStatus", 
+                    "notes": "Multiple status values can be provided with comma seperated strings", 
+                    "parameters": [
+                        {
+                            "allowMultiple": true, 
+                            "allowableValues": {
+                                "valueType": "LIST", 
+                                "values": [
+                                    "available", 
+                                    "pending", 
+                                    "sold"
+                                ]
+                            }, 
+                            "dataType": "string", 
+                            "defaultValue": "available", 
+                            "description": "Status values that need to be considered for filter", 
+                            "name": "status", 
+                            "paramType": "query", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "List[Pet]", 
+                    "summary": "Finds Pets by status"
+                }
+            ], 
+            "path": "/pet.{format}/findByStatus"
+        }, 
+        {
+            "description": "Operations about pets", 
+            "operations": [
+                {
+                    "deprecated": true, 
+                    "errorResponses": [
+                        {
+                            "code": 400, 
+                            "reason": "Invalid tag value"
+                        }
+                    ], 
+                    "httpMethod": "GET", 
+                    "nickname": "findPetsByTags", 
+                    "notes": "MMMM tags can be provided with comma seperated strings. Use tag1, tag2, tag3 for testing.", 
+                    "parameters": [
+                        {
+                            "allowMultiple": true, 
+                            "dataType": "string", 
+                            "description": "Tags to filter by", 
+                            "name": "tags", 
+                            "paramType": "query", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "List[Pet]", 
+                    "summary": "Finds Pets by tags"
+                }
+            ], 
+            "path": "/pet.{format}/findByTags"
+        }
+    ], 
+    "basePath": "http://localhost:8080/swagger/api-docs", 
+    "models": {
+        "Category": {
+            "id": "Category", 
+            "properties": {
+                "id": {
+                    "type": "long"
+                }, 
+                "name": {
+                    "type": "string"
+                }
+            }
+        }, 
+        "Pet": {
+            "id": "Pet", 
+            "properties": {
+                "category": {
+                    "type": "Category"
+                }, 
+                "id": {
+                    "type": "long"
+                }, 
+                "name": {
+                    "type": "string"
+                }, 
+                "photoUrls": {
+                    "items": {
+                        "type": "string"
+                    }, 
+                    "type": "Array"
+                }, 
+                "status": {
+                    "allowableValues": {
+                        "valueType": "LIST", 
+                        "values": [
+                            "available", 
+                            "pending", 
+                            "sold"
+                        ]
+                    }, 
+                    "description": "pet status in the store", 
+                    "type": "string"
+                }, 
+                "tags": {
+                    "items": {
+                        "$ref": "Tag"
+                    }, 
+                    "type": "Array"
+                }
+            }
+        }, 
+        "Tag": {
+            "id": "Tag", 
+            "properties": {
+                "id": {
+                    "type": "long"
+                }, 
+                "name": {
+                    "type": "string"
+                }
+            }
+        }
+    }, 
+    "resourcePath": "", 
+    "swaggerVersion": "1.1"
+}

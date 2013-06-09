@@ -1,0 +1,172 @@
+{
+    "apiVersion": "0.2", 
+    "apis": [
+        {
+            "description": "Operations about Opinions", 
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 400, 
+                            "reason": "Invalid User ID supplied"
+                        }, 
+                        {
+                            "code": 404, 
+                            "reason": "Unable to create "
+                        }
+                    ], 
+                    "httpMethod": "GET", 
+                    "nickname": "obtain", 
+                    "notes": "Creating new access to some user", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "boolean", 
+                            "description": "Recent or not Topics to be fetched", 
+                            "name": "recent", 
+                            "paramType": "path", 
+                            "required": true
+                        }, 
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "ID of Topics needs to be not fetched(should be more than one)", 
+                            "name": "not", 
+                            "paramType": "path", 
+                            "required": false
+                        }, 
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "Max number of Topics that needs to be fetched", 
+                            "name": "limit", 
+                            "paramType": "path", 
+                            "required": false
+                        }
+                    ], 
+                    "responseClass": "Topics", 
+                    "summary": "Find All topics"
+                }
+            ], 
+            "path": "/api/topics"
+        }, 
+        {
+            "description": "Operations about Opinions", 
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 400, 
+                            "reason": "Invalid User ID supplied"
+                        }, 
+                        {
+                            "code": 404, 
+                            "reason": "Unable to delete "
+                        }
+                    ], 
+                    "httpMethod": "DELETE", 
+                    "nickname": "delete", 
+                    "notes": "Delete a topic", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "Topic's id to be deleted", 
+                            "name": "id", 
+                            "paramType": "path", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "Topics", 
+                    "summary": "Deleta a Topic"
+                }
+            ], 
+            "path": "/api/topics/id={id}"
+        }
+    ], 
+    "basePath": "http://192.168.1.140:3000/", 
+    "models": {
+        "Topics": {
+            "id": "Topics", 
+            "properties": {
+                "background_video": {
+                    "type": "varchar"
+                }, 
+                "category_id": {
+                    "type": "int"
+                }, 
+                "comments_count": {
+                    "type": "int"
+                }, 
+                "created_at": {
+                    "type": "datetime"
+                }, 
+                "description": {
+                    "type": "text"
+                }, 
+                "discussion": {
+                    "type": "int"
+                }, 
+                "hashtag": {
+                    "type": "varchar"
+                }, 
+                "id": {
+                    "type": "int"
+                }, 
+                "image_content_type": {
+                    "type": "varchar"
+                }, 
+                "image_file_name": {
+                    "type": "varchar"
+                }, 
+                "image_file_size": {
+                    "type": "int"
+                }, 
+                "last_opinion_created_at": {
+                    "type": "datetime"
+                }, 
+                "marked_as_featured_at": {
+                    "type": "datetime"
+                }, 
+                "opinions_count": {
+                    "type": "int"
+                }, 
+                "permalink": {
+                    "type": "varchar"
+                }, 
+                "points": {
+                    "type": "int"
+                }, 
+                "replies_count": {
+                    "type": "int"
+                }, 
+                "searchable_name": {
+                    "type": "varchar"
+                }, 
+                "start_date": {
+                    "type": "datetime"
+                }, 
+                "ticckle_topic": {
+                    "type": "tinyint"
+                }, 
+                "ticckles_count": {
+                    "type": "int"
+                }, 
+                "type_id": {
+                    "type": "int"
+                }, 
+                "updated_at": {
+                    "type": "datetime"
+                }, 
+                "user_id": {
+                    "type": "int"
+                }, 
+                "views_count": {
+                    "type": "int"
+                }
+            }
+        }
+    }, 
+    "resourcePath": "/store", 
+    "swaggerVersion": "1.1"
+}

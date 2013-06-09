@@ -1,0 +1,171 @@
+{
+    "apiVersion": "0.2", 
+    "apis": [
+        {
+            "description": "Operations about Opinions", 
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 400, 
+                            "reason": "The request must contain the user token"
+                        }, 
+                        {
+                            "code": 406, 
+                            "reason": "The reques must be JSON"
+                        }, 
+                        {
+                            "code": 401, 
+                            "reason": "Invalid token secret"
+                        }
+                    ], 
+                    "httpMethod": "POST", 
+                    "nickname": "obtain", 
+                    "notes": "Creating authentication token for one User", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "User id  in authentication table", 
+                            "name": "uid", 
+                            "paramType": "query", 
+                            "required": true
+                        },
+						{
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "Secret of user in authentication table", 
+                            "name": "secret", 
+                            "paramType": "query", 
+                            "required": true
+                        },
+						{
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "Format of request", 
+                            "name": "formato", 
+                            "paramType": "path", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "String. A volatile authentication token", 
+                    "summary": "Create Token"
+                }
+            ], 
+            "path": "/api/tokens.{formato}"
+        }, {
+            "description": "Operations about Tokens", 
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 404, 
+                            "reason": "Invalid token"
+                        }
+                    ], 
+                    "httpMethod": "DELETE", 
+                    "nickname": "delete", 
+                    "notes": "!!doesnt delete changes it for some other)", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "Token's id to be deleted", 
+                            "name": "id", 
+                            "paramType": "path", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "", 
+                    "summary": "Delete a Token"
+                }
+            ], 
+            "path": "/api/tokens/{id}"
+        }
+    ], 
+    "basePath": "http://192.168.1.133:3000/", 
+    "models": {
+        "Token": {
+            "id": "Token", 
+            "properties": {
+                "id": {
+                    "type": "int"
+                }, 
+                "discussion": {
+                    "type": "int"
+                }, 
+                "points": {
+                    "type": "int"
+                }, 
+                "created_at": {
+                    "type": "datetime"
+                }, 
+                "updated_at": {
+                    "type": "datetime"
+                }, 
+                "start_date": {
+                    "type": "datetime"
+                }, 
+                "hashtag": {
+                    "type": "varchar"
+                }, 
+                "background_video": {
+                    "type": "varchar"
+                }, 
+                "image_file_name": {
+                    "type": "varchar"
+                }, 
+                "image_content_type": {
+                    "type": "varchar"
+                }, 
+                "image_file_size": {
+                    "type": "int"
+                }, 
+                "category_id": {
+                    "type": "int"
+                }, 
+                "comments_count": {
+                    "type": "int"
+                }, 
+                "opinions_count": {
+                    "type": "int"
+                }, 
+                "views_count": {
+                    "type": "int"
+                }, 
+                "ticckles_count": {
+                    "type": "int"
+                }, 
+                "description": {
+                    "type": "text"
+                }, 
+                "ticckle_topic": {
+                    "type": "tinyint"
+                }, 
+                "user_id": {
+                    "type": "int"
+                }, 
+                "replies_count": {
+                    "type": "int"
+                }, 
+                "last_opinion_created_at": {
+                    "type": "datetime"
+                }, 
+                "searchable_name": {
+                    "type": "varchar"
+                }, 
+                "type_id": {
+                    "type": "int"
+                }, 
+                "marked_as_featured_at": {
+                    "type": "datetime"
+                }, 
+                "permalink": {
+                    "type": "varchar"
+                }
+            }
+        }
+    }, 
+    "resourcePath": "/store", 
+    "swaggerVersion": "1.1"
+}

@@ -1,0 +1,159 @@
+{
+    "apiVersion": "0.2",
+    "apis": [
+        {
+            "description": "Operations about Topics",
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 400,
+                            "reason": "User with given id doesn't exist"
+                        }
+                    ],
+                    "httpMethod": "GET",
+                    "nickname": "obtain",
+                    "notes": "Get topics from some user [by category](...pretending. It does NOT filter by category)",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "dataType": "string",
+                            "description": "User's topics",
+                            "name": "user_id",
+                            "paramType": "query",
+                            "required": true
+                        },
+                        {
+                            "allowMultiple": false,
+                            "dataType": "string",
+                            "description": "Topic's category",
+                            "name": "categoy",
+                            "paramType": "query",
+                            "required": false
+                        }
+                    ],
+                    "responseClass": "Topics",
+                    "summary": "Find All topics from user and category"
+                }
+            ],
+            "path": "/api/topics"
+        },
+        {
+            "description": "Operations about Topics",
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 400,
+                            "reason": "Invalid User ID supplied"
+                        },
+                        {
+                            "code": 404,
+                            "reason": "Unable to delete "
+                        }
+                    ],
+                    "httpMethod": "DELETE",
+                    "nickname": "delete",
+                    "notes": "Delete a topic. If the topic has replies already then we cannot delete it because we would delete its replies So we do this 1. Mark the main video as deleted 2. Make the first reply as the main video of the topic 3. Change the ownership of the topic to the user of the first reply 4. Notify the first reply user that he is the new owner of the thread (WARNING: Can't verify CSRF token authenticity Completed 401 Unauthorized in 2ms but redirects and shows 200)",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "dataType": "string",
+                            "description": "Topic's id to be deleted",
+                            "name": "id",
+                            "paramType": "path",
+                            "required": true
+                        }
+                    ],
+                    "summary": "Delete a Topic"
+                }
+            ],
+            "path": "/api/topics/{id}"
+        }
+    ],
+    "basePath": "http://192.168.1.133:3000/",
+    "models": {
+        "Topics": {
+            "id": "Topics",
+            "properties": {
+                "background_video": {
+                    "type": "varchar"
+                },
+                "category_id": {
+                    "type": "int"
+                },
+                "comments_count": {
+                    "type": "int"
+                },
+                "created_at": {
+                    "type": "datetime"
+                },
+                "description": {
+                    "type": "text"
+                },
+                "discussion": {
+                    "type": "int"
+                },
+                "hashtag": {
+                    "type": "varchar"
+                },
+                "id": {
+                    "type": "int"
+                },
+                "image_content_type": {
+                    "type": "varchar"
+                },
+                "image_file_name": {
+                    "type": "varchar"
+                },
+                "image_file_size": {
+                    "type": "int"
+                },
+                "last_opinion_created_at": {
+                    "type": "datetime"
+                },
+                "marked_as_featured_at": {
+                    "type": "datetime"
+                },
+                "opinions_count": {
+                    "type": "int"
+                },
+                "permalink": {
+                    "type": "varchar"
+                },
+                "points": {
+                    "type": "int"
+                },
+                "replies_count": {
+                    "type": "int"
+                },
+                "searchable_name": {
+                    "type": "varchar"
+                },
+                "start_date": {
+                    "type": "datetime"
+                },
+                "ticckle_topic": {
+                    "type": "tinyint"
+                },
+                "ticckles_count": {
+                    "type": "int"
+                },
+                "type_id": {
+                    "type": "int"
+                },
+                "updated_at": {
+                    "type": "datetime"
+                },
+                "user_id": {
+                    "type": "int"
+                },
+                "views_count": {
+                    "type": "int"
+                }
+            }
+        }
+    },
+    "resourcePath": "/topics",
+    "swaggerVersion": "1.1"
+}

@@ -1,0 +1,262 @@
+{
+    "apiVersion": "0.2", 
+    "apis": [
+        {
+            "description": "Operations about Videos", 
+            "operations": [
+                {
+                    "errorResponses":"",
+                    "httpMethod": "GET", 
+                    "nickname": "obtain", 
+                    "notes": "", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "Video's User", 
+                            "name": "search", 
+                            "paramType": "query", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "Video", 
+                    "summary": "Find Video"
+                }
+            ], 
+            "path": "/videos"},
+	        {
+	            "description": "Operations about Videos", 
+	            "operations": [
+	                {
+	                    "errorResponses":"",
+	                    "httpMethod": "GET", 
+	                    "nickname": "obtain", 
+	                    "notes": "", 
+	                    "parameters": [
+	                        {
+	                            "allowMultiple": false, 
+	                            "dataType": "string", 
+	                            "description": "Video's User", 
+	                            "name": "origin_opinion_id", 
+	                            "paramType": "query", 
+	                            "required": true
+	                        },{
+	                            "allowMultiple": false, 
+	                            "dataType": "string", 
+	                            "description": "Video's User", 
+	                            "name": "tags", 
+	                            "paramType": "query", 
+	                            "required": true
+	                        }
+	                    ], 
+	                    "responseClass": "", 
+	                    "summary": "New Video"
+	                }
+	            ], 
+	            "path": "/videos/new"},
+			 {
+	            "description": "Operations about Videos", 
+	            "operations": [
+	                {
+	                    "errorResponses":"",
+	                    "httpMethod": "POST", 
+	                    "nickname": "obtain", 
+	                    "notes": "", 
+	                    "parameters": [
+	                        {
+	                            "allowMultiple": false, 
+	                            "dataType": "string", 
+	                            "description": "Video's User", 
+	                            "name": "video", 
+	                            "paramType": "query", 
+	                            "required": true
+	                        }
+	                    ], 
+	                    "responseClass": "", 
+	                    "summary": "Create Video"
+	                }
+	            ], 
+	            "path": "/videos"},
+			{
+	            "description": "Operations about Opinions", 
+	            "operations": [
+	                {
+	                    "errorResponses":"",
+	                    "httpMethod": "POST", 
+	                    "nickname": "obtain", 
+	                    "notes": "", 
+	                    "parameters": [
+	                        {
+	                            "allowMultiple": false, 
+	                            "dataType": "string", 
+	                            "description": "Video's User", 
+	                            "name": "id", 
+	                            "paramType": "path", 
+	                            "required": true
+	                        }
+	                    ], 
+	                    "responseClass": "", 
+	                    "summary": "Show Video"
+	                }
+	            ], 
+	            "path": "/videos/{id}"},
+				{
+	            "description": "Operations about Opinions", 
+	            "operations": [
+	                {
+	                    "errorResponses":"",
+	                    "httpMethod": "PUT", 
+	                    "nickname": "", 
+	                    "notes": "", 
+	                    "parameters": [
+	                        {
+	                            "allowMultiple": false, 
+	                            "dataType": "string", 
+	                            "description": "Video's User", 
+	                            "name": "id", 
+	                            "paramType": "query", 
+	                            "required": true
+	                        },
+	                        {
+	                            "allowMultiple": false, 
+	                            "dataType": "string", 
+	                            "description": "Video's User", 
+	                            "name": "video", 
+	                            "paramType": "query", 
+	                            "required": true
+	                        },{
+	                            "allowMultiple": false, 
+	                            "dataType": "string", 
+	                            "description": "Video's User", 
+	                            "name": "viewed", 
+	                            "paramType": "query", 
+	                            "required": true
+	                        }
+	                    ], 
+	                    "responseClass": "", 
+	                    "summary": "Update Video"
+	                }
+	            ], 
+	            "path": "/videos"},
+				{
+	            "description": "Operations about Opinions", 
+	            "operations": [
+	                {
+	                    "errorResponses":"",
+	                    "httpMethod": "DELETE", 
+	                    "nickname": "delete", 
+	                    "notes": "", 
+	                    "parameters": [
+	                        {
+	                            "allowMultiple": false, 
+	                            "dataType": "string", 
+	                            "description": "Video", 
+	                            "name": "id", 
+	                            "paramType": "query", 
+	                            "required": true
+	                        }
+	                    ], 
+	                    "responseClass": "", 
+	                    "summary": "Destroy Video"
+	                }
+	            ], 
+	            "path": "/videos"}
+    ], 
+    "basePath": "http://192.168.1.131:3000/", 
+    "models": {
+        "Video": {
+            "id": "Video", 
+            "properties": {
+                "accepted_by_mod": {
+                    "type": "tinyint"
+                }, 
+                "channel": {
+                    "type": "varchar"
+                }, 
+                "comments_count": {
+                    "type": "int"
+                }, 
+                "created_at": {
+                    "type": "datetime"
+                }, 
+                "description": {
+                    "type": "text"
+                }, 
+                "first_played_at": {
+                    "type": "int"
+                }, 
+                "guid": {
+                    "type": "varchar"
+                }, 
+                "id": {
+                    "type": "int"
+                }, 
+                "last_error": {
+                    "type": "varchar"
+                }, 
+                "last_queued_at": {
+                    "type": "datetime"
+                }, 
+                "lenght": {
+                    "type": "double"
+                }, 
+                "origin_opinion_id": {
+                    "type": "int"
+                }, 
+                "points": {
+                    "type": "int"
+                }, 
+                "published_at": {
+                    "type": "datetime"
+                }, 
+                "replies_count": {
+                    "type": "int"
+                }, 
+                "reply_to_opinion_id": {
+                    "type": "int"
+                }, 
+                "s3_key": {
+                    "type": "varchar"
+                }, 
+                "state": {
+                    "type": "varchar"
+                }, 
+                "tags": {
+                    "type": "varchar"
+                }, 
+                "thumbnail_content_type": {
+                    "type": "varchar"
+                }, 
+                "thumbnail_file_name": {
+                    "type": "varchar"
+                }, 
+                "thumbnail_file_size": {
+                    "type": "int"
+                }, 
+                "ticckles_count": {
+                    "type": "int"
+                }, 
+                "title": {
+                    "type": "varchar"
+                }, 
+                "topic_id": {
+                    "type": "int"
+                }, 
+                "updated_at": {
+                    "type": "datetime"
+                }, 
+                "user_id": {
+                    "type": "int"
+                }, 
+                "uuid": {
+                    "type": "varchar"
+                }, 
+                "views_count": {
+                    "type": "int"
+                }
+            }
+        }
+    }, 
+    "resourcePath": "/store", 
+    "swaggerVersion": "1.1"
+}

@@ -1,0 +1,147 @@
+{
+    "apiVersion": "0.2", 
+    "apis": [
+        {
+            "description": "Operation about user config", 
+            "operations": [
+                {
+                    "errorResponses": "", 
+                    "httpMethod": "GET", 
+                    "nickname": "Create Reply", 
+                    "notes": "this auth token is provisional (when no working then no error =>Filter chain halted as :authenticate_staging rendered or redirected Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms) andit redirects to index)", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "", 
+                            "name": "auth_token", 
+                            "paramType": "query", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "Return to strings", 
+                    "summary": "Return user-(token) and password(secret) from Authentication"
+                }
+            ], 
+            "path": "/api/share_configs"
+        },{
+            "description": "Operations about user configuration", 
+            "operations": [
+                {
+                    "errorResponses": [
+                       {
+                           "code": 400, 
+                           "reason": "Origin opinion with given id doesn't exist"
+                       }
+                    ], 
+                    "httpMethod": "PUT", 
+                    "nickname": "Update user configuration", 
+                    "notes": "not able to manage keys iteration. Revision needed", 
+                    "parameters": [],
+                    
+                    "responseClass": "", 
+                    "summary": "Modify configuration of user through diferent keys"
+                }
+            ], 
+            "path": "/api/share_configs"
+        }
+    ], 
+    "basePath": "http://192.168.1.131:3000/", 
+   "models": {
+       "Video": {
+           "id": "Video", 
+           "properties": {
+               "accepted_by_mod": {
+                   "type": "tinyint"
+               }, 
+               "channel": {
+                   "type": "varchar"
+               }, 
+               "comments_count": {
+                   "type": "int"
+               }, 
+               "created_at": {
+                   "type": "datetime"
+               }, 
+               "description": {
+                   "type": "text"
+               }, 
+               "first_played_at": {
+                   "type": "int"
+               }, 
+               "guid": {
+                   "type": "varchar"
+               }, 
+               "id": {
+                   "type": "int"
+               }, 
+               "last_error": {
+                   "type": "varchar"
+               }, 
+               "last_queued_at": {
+                   "type": "datetime"
+               }, 
+               "lenght": {
+                   "type": "double"
+               }, 
+               "origin_opinion_id": {
+                   "type": "int"
+               }, 
+               "points": {
+                   "type": "int"
+               }, 
+               "published_at": {
+                   "type": "datetime"
+               }, 
+               "replies_count": {
+                   "type": "int"
+               }, 
+               "reply_to_opinion_id": {
+                   "type": "int"
+               }, 
+               "s3_key": {
+                   "type": "varchar"
+               }, 
+               "state": {
+                   "type": "varchar"
+               }, 
+               "tags": {
+                   "type": "varchar"
+               }, 
+               "thumbnail_content_type": {
+                   "type": "varchar"
+               }, 
+               "thumbnail_file_name": {
+                   "type": "varchar"
+               }, 
+               "thumbnail_file_size": {
+                   "type": "int"
+               }, 
+               "ticckles_count": {
+                   "type": "int"
+               }, 
+               "title": {
+                   "type": "varchar"
+               }, 
+               "topic_id": {
+                   "type": "int"
+               }, 
+               "updated_at": {
+                   "type": "datetime"
+               }, 
+               "user_id": {
+                   "type": "int"
+               }, 
+               "uuid": {
+                   "type": "varchar"
+               }, 
+               "views_count": {
+                   "type": "int"
+               }
+           }
+       }
+   }, 
+   "resourcePath": "/replies", 
+   "swaggerVersion": "1.1"
+   
+}

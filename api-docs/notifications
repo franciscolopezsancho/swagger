@@ -1,0 +1,109 @@
+{
+    "apiVersion": "0.2", 
+    "apis": [
+        {
+            "description": "Operations about store", 
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 401, 
+                            "reason": "You need to sign in or sign up before continuing."
+                        }
+                    ], 
+                    "httpMethod": "GET", 
+                    "nickname": "new", 
+                    "notes": "Always current user equal 1...must be checked, code 200 when no response", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "ID of user that needs to filter", 
+                            "name": "senderId", 
+                            "paramType": "query", 
+                            "required": true
+                        },
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "ID of topic that needs to filter", 
+                            "name": "topicId", 
+                            "paramType": "query", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "Notification", 
+                    "summary": "Find current user, unreaded notifications by user who send it and its topic_id with read_at NULL"
+                }
+            ], 
+            "path": "/notifications.json"
+        }, {
+            "description": "Operations about store", 
+            "operations": [
+                {
+                    "errorResponses": [
+                       {
+                          
+                       }
+                    ], 
+                    "httpMethod": "PUT", 
+                    "nickname": "new", 
+                    "notes": "!Unable to call.", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "ID of notification", 
+                            "name": "id", 
+                            "paramType": "path", 
+                            "required": true
+                        }
+                    ], 
+                    "responseClass": "Notification", 
+                    "summary": " Search current_user's notifications by id and updates its read_at to now. So it marks it as readed"
+                }
+            ], 
+            "path": "/notifications/{id}"
+        }
+    ], 
+    "basePath": "http://192.168.1.133:3000/", 
+    "models": {
+        "Notification": {
+            "id": "Notification", 
+            "properties": {
+                "id": {
+                    "type": "int"
+                }, 
+                "userId": {
+                    "type": "int"
+                }, 
+                "senderId": {
+                    "type": "int"
+                }, 
+                "noticeable_id": {
+                    "type": "int"
+                }, 
+                "noticeable_type": {
+                   "type": "string"
+                },
+				 "type": {
+                   "type": "string"
+                }, 
+                "read_at": {
+                   "type": "datetime"
+                }, 
+                "created_at": {
+                   "type": "datetime"
+                }, 
+                "updated_at": {
+                   "type": "datetime"
+                }, 
+                "topic_id": {
+                   "type": "int"
+                }
+            }
+        }
+    }, 
+    "resourcePath": "/notifications", 
+    "swaggerVersion": "1.1"
+}
