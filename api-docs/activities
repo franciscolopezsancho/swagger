@@ -1,0 +1,83 @@
+{
+    "apiVersion": "0.2", 
+    "apis": [
+        {
+            "description": "Operations about Activities", 
+            "operations": [
+                {
+                    "errorResponses": [
+                        {
+                            "code": 400, 
+                            "reason": "User with given id doesn't exist"
+                        }
+                    ], 
+                    "httpMethod": "GET", 
+                    "nickname": "obtain", 
+                    "notes": "Creating tokens", 
+                    "parameters": [
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "User", 
+                            "name": "id", 
+                            "paramType": "path", 
+                            "required": true
+                        }, 
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "Created after date. format: yyyy-mm-dd", 
+                            "name": "from", 
+                            "paramType": "query", 
+                            "required": false
+                        }, 
+                        {
+                            "allowMultiple": false, 
+                            "dataType": "string", 
+                            "description": "Create equals or before date. format: yyyy-mm-dd", 
+                            "name": "to", 
+                            "paramType": "query", 
+                            "required": false
+                        }
+                    ], 
+                    "responseClass": "Activity", 
+                    "summary": "Gets videos that reply to opinions from user passed and ticckles from same user. Optional to filter by dates"
+                }
+            ], 
+            "path": "/api/activity/{id}"}
+    ], 
+    "basePath": "http://192.168.1.131:3000/", 
+    "models": {
+        "Video": {
+            "id": "Video", 
+            "properties": {
+                "type": {
+                    "type": "string"
+                }, 
+                "date": {
+                    "type": "date"
+                }, 
+                "title": {
+                    "type": "string"
+                }, 
+                "id": {
+                    "type": "int"
+                }, 
+                "topic_id": {
+                    "type": "int"
+                }, 
+                "user_id": {
+                    "type": "int"
+                }, 
+                "user_avatar": {
+                    "type": "file"
+                }, 
+                "user_name": {
+                    "type": "string"
+                }
+            }
+        }
+    }, 
+    "resourcePath": "/store", 
+    "swaggerVersion": "1.1"
+}

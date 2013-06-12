@@ -54,6 +54,10 @@
     {
       "path":"/api-docs/videosNoApi",
       "description":"Operations attaching videos with users"
+    },
+    {
+      "path":"/api-docs/activities",
+      "description":"Operations attaching videos with users"
     }
   ]
 }
